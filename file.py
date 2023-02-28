@@ -4,6 +4,7 @@ from pymongo import MongoClient
 cluster=MongoClient("mongodb+srv://anirudhaun:cY5hdsdwvg1aHTex@cluster0.suvfptn.mongodb.net/?retryWrites=true&w=majority")
 db=cluster["Newsfeed"]
 collection=db["Collection"]
+rssfeed=db["rssCollection"]
 
 post1={"Source":"TechCrunch","Title":"Tesla raises price of Full Self-Driving option to $10k","Summary":"Tesla has raised the price of its Full Self-Driving option to $10,000 ...","ArticleContent":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...","AuthorNames":["John Doe"],"ArticleURL":"https://techcrunch.com/2021/02/08/tesla-raises-price-of-full-self-driving-option-to-10k/","CoverImgURL":"https://img.techcrunch.com/2021/02/08/tesla-model-s-red.jpg","Tags":["Tesla","Self-Driving","Autonomous Vehicles"],"Comments":["Great news for Tesla investors!","I can't afford this."],"Category":"Technology"}
 post2={"Source":"The Verge","Title":"Microsoft releases emergency update to fix Windows 10 bug causing blue screens","Summary":"Microsoft is releasing an emergency update to its Windows 10 operating system...","ArticleContent":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod...","AuthorNames":["Bob Johnson"],"ArticleURL":"https://www.theverge.com/2021/2/9/22274814/microsoft-windows-10-emergency-update-blue-screen-bug-fix","CoverImgURL":"https://cdn.vox-cdn.com/thumbor/rzh_-QsO4fZ4q-V6jhgeBvmt-K8=/0x0:2040x1360/920x613/filters:focal(860x1096:1180x1416):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/68950562/acastro_210205_1777_windows10_0006.0.jpg","Tags":["Microsoft","Windows 10","Bug"],"Comments":["Glad they're addressing this quickly.","Another reason to switch to Linux!"],"Category":"Technology"}
@@ -64,5 +65,7 @@ def get_article_details():
         article_details.append(details)
         
     # Return the list of article details
-    return article_details
-get_article_details()
+    for articles in article_details:
+         print(article)
+get_article_details() 
+
